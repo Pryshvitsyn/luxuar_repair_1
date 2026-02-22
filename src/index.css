@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #0ea5e9;
+  --color-brand-emi-primary: #D00113;
+  /* EMI primary red */
+  --color-brand-emi-secondary: #CD955C;
+  /* EMI secondary brass */
+  --color-brand-beige: #fef08a;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+
+  html,
+  body {
+    @apply antialiased bg-slate-50 text-slate-900 selection:bg-brand-blue selection:text-white;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .clip-path-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .brand-logo {
+    width: 120px;
+    height: auto;
+    filter: grayscale(20%);
+    transition: transform 0.3s, filter 0.3s;
+  }
+
+  .brand-logo:hover {
+    transform: scale(1.08);
+    filter: grayscale(0%);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
