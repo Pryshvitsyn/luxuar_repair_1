@@ -92,8 +92,8 @@ function App() {
       description: tp[2].description,
       detailsText: tp[2].detailsText,
       carouselImages: argentarioDetails,
-      beforeImage: "/images/portfolio/Argentario_before.jpg",
-      afterImage: "/images/portfolio/Argentario_after.jpg",
+      beforeImage: "/images/portfolio/argentario_before.png",
+      afterImage: "/images/portfolio/argentario_after.png",
     },
     {
       id: 4,
@@ -111,7 +111,7 @@ function App() {
       detailsText: tp[4].detailsText,
       carouselImages: placeholderImages, // Will update when quota resets
       beforeImage: "/images/portfolio/kitchen_BEFORE.png",
-      afterImage: "/images/hero/kitchen_AFTER.png",
+      afterImage: "/images/portfolio/kitchen_AFTER.png",
     }
   ]
 
