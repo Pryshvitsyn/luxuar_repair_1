@@ -153,10 +153,16 @@ function App() {
                 <div className="text-slate-300">|</div>
                 <button onClick={() => setLanguage('ru')} className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
               </div>
-              <button className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl shadow-brand-blue/20 hover:shadow-brand-blue/40 flex items-center gap-2 group">
-                {t('nav.consultation')}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <a 
+              href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl shadow-brand-blue/20 hover:shadow-brand-blue/40 flex items-center gap-2 group"
+>
+  {t('nav.consultation')}
+  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+</a>
+
             </div>
 
             {/* Mobile menu button */}
