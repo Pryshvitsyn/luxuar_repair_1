@@ -65,6 +65,14 @@ function App() {
     "https://placehold.co/800x800/1e293b/ffffff?text=Chef+Grade+Modern+Kitchen",
   ]
 
+  const comoDetails = [
+    "/images/details/como_detail_1.png",
+    "/images/details/como_detail_2.png",
+    "/images/details/como_detail_3.png",
+    "/images/details/como_detail_4.png",
+  ]
+
+
   const tp = t('portfolio.projects');
 
   const portfolioItems = [
@@ -109,7 +117,7 @@ function App() {
       location: tp[4].location,
       description: tp[4].description,
       detailsText: tp[4].detailsText,
-      carouselImages: placeholderImages, // Will update when quota resets
+      carouselImages: comoDetails, // Will update when quota resets
       beforeImage: "/images/portfolio/como_before.png",
       afterImage: "/images/portfolio/como_after.png",
     }
