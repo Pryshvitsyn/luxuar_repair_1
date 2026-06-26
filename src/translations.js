@@ -21,8 +21,9 @@ export const translations = {
         services: {
             tag: "Our Expertise",
             title: "Complete Turnkey Solutions",
-            subtitle: "Handling every aspect from structural geometries to final interior design touches, ensuring your peace of mind.",
+            subtitle: "Guiding you through every step — from searching and buying property in Italy to handling structural geometries and final interior design touches, ensuring your peace of mind.",
             items: [
+                { title: 'Complete Guidance', desc: 'During searching and buying property in Italy, with full legal checks and documentation under Italian law.' },
                 { title: 'Restructuring', desc: 'Full restoration of historical and modern properties.' },
                 { title: 'Design & Architecture', desc: 'Working with our vision or alongside your personal architect.' },
                 { title: 'Maintenance', desc: 'Ongoing property care to preserve your investment.' }
