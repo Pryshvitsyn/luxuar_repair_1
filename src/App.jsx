@@ -192,11 +192,13 @@ function App() {
     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
   </a>
 </div>
-
+            </div>
+          </div>
+ </nav>
 {/* Popup Form */}
 {isFormOpen && <ConsultationForm onClose={() => setIsFormOpen(false)} />}
 
-      </nav>
+     
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
