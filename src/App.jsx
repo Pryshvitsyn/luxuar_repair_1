@@ -126,7 +126,7 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+    <div className="min-h-screen bg-slate-900 text-white shadow-2xl font-sans text-slate-900">
       {/*navbar*/}
   <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
  
