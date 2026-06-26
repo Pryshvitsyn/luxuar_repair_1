@@ -246,7 +246,7 @@ function App() {
             <p className="text-lg text-slate-600">{t('services.subtitle')}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             {t('services.items').map((service, index) => (
               <div key={index} className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-blue/30 hover:shadow-xl transition-all duration-300 group cursor-pointer">
                 <CheckCircle2 className="w-10 h-10 text-brand-blue mb-6 group-hover:scale-110 transition-transform" />
