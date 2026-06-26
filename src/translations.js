@@ -10,7 +10,7 @@ export const translations = {
         hero: {
             title1: "Elevating heritage into",
             title2: "modern luxury.",
-            subtitle: "We provide turnkey restructuring and meticulous maintenance services across Italy. From ancient Amalfi villas to contemporary Rome apartments, we craft spaces with an architectural vision.",
+            subtitle: "Our long-standing expertise ensures complete support in finding and acquiring property in Italy, handling all documentation and legal complexities, and transforming each space with turnkey restructuring and meticulous maintenance.",
             viewPortfolio: "View Portfolio",
             ourServices: "Our Services"
         },
