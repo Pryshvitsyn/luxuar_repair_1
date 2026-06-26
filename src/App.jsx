@@ -179,42 +179,65 @@ function App() {
         </div>
       </div>
     </div>
-  </nav>
 
-  {/* 🔑 Backdrop + Sidebar OUTSIDE nav */}
-  {isMobileMenuOpen && (
-    <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/50 z-40"
-        onClick={() => setIsMobileMenuOpen(false)}
-      ></div>
+    {/* 🔑 Mobile Menu INSIDE nav */}
+    {isMobileMenuOpen && (
+      <>
+        {/* Backdrop */}
+        <div
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        ></div>
 
-      {/* Sidebar */}
-      <div
-        className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl border-l border-slate-200 transform transition-transform duration-300 ease-in-out z-50 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="p-6 space-y-4">
-          {/* Close button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-slate-600 hover:text-slate-900 focus:outline-none mb-4"
-          >
-            <X className="h-6 w-6" />
-          </button>
+        {/* Sidebar */}
+        <div
+          className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl border-l border-slate-200 transform transition-transform duration-300 ease-in-out z-50 ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="p-6 space-y-4">
+            {/* Close button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-slate-600 hover:text-slate-900 focus:outline-none mb-4"
+            >
+              <X className="h-6 w-6" />
+            </button>
 
-          {/* Links, Language Switcher, Buttons */}
-          {/* Add your mobile links and buttons here */}
+            {/* Mobile Links */}
+            <a href="#services" className="block text-slate-600 hover:text-brand-blue">{t('nav.services')}</a>
+            <a href="#portfolio" className="block text-slate-600 hover:text-brand-blue">{t('nav.portfolio')}</a>
+            <a href="#testimonials" className="block text-slate-600 hover:text-brand-blue">{t('nav.testimonials')}</a>
+            <a href="#credentials" className="block text-slate-600 hover:text-brand-blue">{t('nav.credentials')}</a>
+
+            {/* Language Switcher */}
+            <div className="flex gap-2 text-sm font-medium mt-4">
+              <button onClick={() => setLanguage('en')} className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+              <div className="text-slate-300">|</div>
+              <button onClick={() => setLanguage('it')} className={`transition-colors text-xs font-bold ${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+              <div className="text-slate-300">|</div>
+              <button onClick={() => setLanguage('ru')} className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+            </div>
+
+            {/* Buttons */}
+            <button onClick={() => { setIsFormOpen(true); setIsMobileMenuOpen(false); }} className="w-full bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group">
+              {t('nav.consultation')}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <a href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" target="_blank" rel="noopener noreferrer" className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group">
+              WhatsApp
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </div>
-      </div>
-    </>
-  )}
+      </>
+    )}
+  </nav>
 
   {/* Popup Form */}
   {isFormOpen && <ConsultationForm onClose={() => setIsFormOpen(false)} />}
 </div>
+
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
