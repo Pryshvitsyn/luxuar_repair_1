@@ -126,10 +126,9 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white shadow-2xl font-sans text-slate-900">
-      {/*navbar*/}
+    <div className="min-h-screen bg-slate-900 text-white font-sans shadow-2xl">
+  {/* Navbar */}
   <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
- 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between h-20 items-center">
         {/* Logo */}
@@ -198,14 +197,16 @@ function App() {
         }`}
       >
         <div className="p-6 space-y-4">
-        </nav>
-          {/* Backdrop + Sidebar OUTSIDE nav */}
-  {isMobileMenuOpen && (
-    <>
-      <div className="fixed inset-0 bg-black/50 z-40" onClick={() => setIsMobileMenuOpen(false)}></div>
-      <div className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl border-l border-slate-200 transform transition-transform duration-300 ease-in-out z-50 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="p-6 space-y-4">
-          ...
+          {/* Close button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-slate-600 hover:text-slate-900 focus:outline-none mb-4"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {/* Links, Language Switcher, Buttons */}
+          {/* Add your mobile links and buttons here */}
         </div>
       </div>
     </>
