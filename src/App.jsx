@@ -3,6 +3,7 @@ import { CheckCircle2, ChevronRight, Menu, X, ArrowRight, Star, ExternalLink, Sh
 import BeforeAfterSlider from './components/BeforeAfterSlider'
 import ProjectDetailsModal from './components/ProjectDetailsModal'
 import { useLanguage } from './LanguageContext'
+import ConsultationForm from './components/ConsultationForm'
 
 // Placeholder image paths - we will replace these once the generation API is available
 const amalfiBefore = '/images/placeholders/amalfi-before.jpg'
@@ -13,6 +14,7 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
+  const [isFormOpen, setIsFormOpen] = useState(false)
   const { t, language, setLanguage } = useLanguage()
 
   const placeholderImages = [
@@ -144,38 +146,56 @@ function App() {
               <a href="#credentials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.credentials')}</a>
             </div>
 
-            {/* CTA Button & Language Switcher */}
-            <div className="hidden md:flex items-center gap-4">
-              <div className="flex gap-2 text-sm font-medium">
-                <button onClick={() => setLanguage('en')} className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
-                <div className="text-slate-300">|</div>
-                <button onClick={() => setLanguage('it')} className={`transition-colors text-xs font-bold ${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
-                <div className="text-slate-300">|</div>
-                <button onClick={() => setLanguage('ru')} className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
-              </div>
-              <a 
-              href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl shadow-brand-blue/20 hover:shadow-brand-blue/40 flex items-center gap-2 group"
->
-  {t('nav.consultation')}
-  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-</a>
+            {/* Header: Language Switcher + Consultation Buttons */}
+<div className="flex items-center gap-4">
+  {/* Language Switcher */}
+  <div className="flex gap-2 text-sm font-medium">
+    <button 
+      onClick={() => setLanguage('en')} 
+      className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}
+    >
+      EN
+    </button>
+    <div className="text-slate-300">|</div>
+    <button 
+      onClick={() => setLanguage('it')} 
+      className={`transition-colors text-xs font-bold ${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}
+    >
+      IT
+    </button>
+    <div className="text-slate-300">|</div>
+    <button 
+      onClick={() => setLanguage('ru')} 
+      className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}
+    >
+      RU
+    </button>
+  </div>
 
-            </div>
+  {/* Button 1: Consultation Form Popup */}
+  <button
+    onClick={() => setIsFormOpen(true)}
+    className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl flex items-center gap-2 group"
+  >
+    {t('nav.consultation')}
+    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+  </button>
 
-            {/* Mobile menu button */}
-            <div className="flex items-center md:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-slate-600 hover:text-slate-900 focus:outline-none"
-              >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
+  {/* Button 2: Direct WhatsApp */}
+  <a
+    href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl flex items-center gap-2 group"
+  >
+    WhatsApp
+    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+  </a>
+</div>
+
+{/* Popup Form */}
+{isFormOpen && <ConsultationForm onClose={() => setIsFormOpen(false)} />}
+
       </nav>
 
       {/* Hero Section */}
