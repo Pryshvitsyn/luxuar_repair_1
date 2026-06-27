@@ -184,7 +184,7 @@ function App() {
       </nav>
 
       {/* Mobile & Tablet Inline Controls */}
-<div className="fixed top-0 right-4 z-40 h-20 flex flex flex-col items-end gap-2 lg:hidden">
+<div className="fixed center-0 right-4 z-40 h-20 flex flex-col items-end gap-2 lg:hidden">
   {/* Top Row: Language Switcher inline with Logo */}
   <div className="flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
     <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
