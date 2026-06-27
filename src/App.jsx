@@ -150,11 +150,11 @@ function App() {
             <div className="hidden md:flex items-center gap-4">
               {/* Language Switcher */}
               <div className="flex gap-2 text-sm font-medium">
-                <button onClick={() => setLanguage('en')} className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+                <button onClick={() => setLanguage('en')} className={`${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
                 <div className="text-slate-300">|</div>
-                <button onClick={() => setLanguage('it')} className={`transition-colors text-xs font-bold ${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+                <button onClick={() => setLanguage('it')} className={`${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
                 <div className="text-slate-300">|</div>
-                <button onClick={() => setLanguage('ru')} className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+                <button onClick={() => setLanguage('ru')} className={`${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
               </div>
 
               {/* WhatsApp Button */}
@@ -182,9 +182,9 @@ function App() {
       </nav>
 
       {/* Mobile Floating Controls */}
-      <div className="fixed top-4 right-4 z-50 flex flex-col items-end gap-3 md:hidden">
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3 md:hidden">
         {/* Language Switcher */}
-        <div className="flex gap-2 text-xs font-bold bg-white/80 backdrop-blur-md rounded-full px-3 py-1 shadow-md">
+        <div className="flex gap-2 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-3 py-1 shadow-md">
           <button onClick={() => setLanguage('en')} className={`${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
           <div className="text-slate-300">|</div>
           <button onClick={() => setLanguage('it')} className={`${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
