@@ -216,7 +216,7 @@ function App() {
       {/* Popup Form */}
       {isFormOpen && <ConsultationForm onClose={() => setIsFormOpen(false)} />}
     </div>
-
+)
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
         {/* Background Image Carousel with Overlay */}
