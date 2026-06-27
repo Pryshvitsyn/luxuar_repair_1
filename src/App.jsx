@@ -177,39 +177,41 @@ function App() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
+
+            {/* Mobile Menu Button - Hidden, we'll use floating controls instead */}
           </div>
         </div>
       </nav>
 
-      {/* Mobile Floating Controls - Top Right */}
-      <div className="fixed top-20 right-4 z-30 flex flex-col items-end gap-2 md:hidden">
+      {/* Mobile & Tablet Inline Controls - Same level as navbar */}
+      <div className="fixed top-0 right-4 z-40 h-20 flex items-center gap-2 lg:hidden">
         {/* Language Switcher */}
-        <div className="flex gap-2 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-3 py-1.5 shadow-md">
-          <button onClick={() => setLanguage('en')} className={`${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+        <div className="flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
+          <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
           <div className="text-slate-300">|</div>
-          <button onClick={() => setLanguage('it')} className={`${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+          <button onClick={() => setLanguage('it')} className={`px-2 py-0.5 rounded transition-colors ${language === 'it' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
           <div className="text-slate-300">|</div>
-          <button onClick={() => setLanguage('ru')} className={`${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+          <button onClick={() => setLanguage('ru')} className={`px-2 py-0.5 rounded transition-colors ${language === 'ru' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
         </div>
 
-        {/* WhatsApp Round Button */}
+        {/* WhatsApp Button */}
         <a
           href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-green-600 hover:bg-green-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          className="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 flex-shrink-0"
           title="WhatsApp"
         >
-          <MessageCircle className="w-6 h-6" />
+          <MessageCircle className="w-5 h-5" />
         </a>
 
-        {/* Calendar/Consultation Round Button */}
+        {/* Calendar/Consultation Button */}
         <button
           onClick={() => setIsFormOpen(true)}
-          className="bg-brand-blue hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          className="bg-brand-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 flex-shrink-0"
           title="Schedule Consultation"
         >
-          <Calendar className="w-6 h-6" />
+          <Calendar className="w-5 h-5" />
         </button>
       </div>
 
