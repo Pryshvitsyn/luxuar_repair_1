@@ -127,91 +127,29 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans shadow-2xl">
-  {/* Navbar */}
-  <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-between h-20 items-center">
-        {/* Logo */}
-        <div className="flex-shrink-0 flex items-center">
-          <span className="text-2xl font-serif font-bold tracking-tight text-slate-900">
-            Elio<span className="text-brand-blue">Genesis</span>
-          </span>
-        </div>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:ml-10 md:flex md:space-x-8">
-          <a href="#services" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.services')}</a>
-          <a href="#portfolio" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.portfolio')}</a>
-          <a href="#testimonials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.testimonials')}</a>
-          <a href="#credentials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.credentials')}</a>
-        </div>
-
-        {/* Desktop Header: Language + Buttons */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Language Switcher */}
-          <div className="flex gap-2 text-sm font-medium">
-            <button onClick={() => setLanguage('en')} className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
-            <div className="text-slate-300">|</div>
-            <button onClick={() => setLanguage('it')} className={`transition-colors text-xs font-bold ${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
-            <div className="text-slate-300">|</div>
-            <button onClick={() => setLanguage('ru')} className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+    {/* Navbar */}
+    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20 items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <span className="text-2xl font-serif font-bold tracking-tight text-slate-900">
+              Elio<span className="text-brand-blue">Genesis</span>
+            </span>
           </div>
 
-          {/* Buttons */}
-          <button onClick={() => setIsFormOpen(true)} className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 group">
-            {t('nav.consultation')}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <a href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" target="_blank" rel="noopener noreferrer" className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 group">
-            WhatsApp
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
+          {/* Desktop Menu */}
+          <div className="hidden md:ml-10 md:flex md:space-x-8">
+            <a href="#services" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.services')}</a>
+            <a href="#portfolio" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.portfolio')}</a>
+            <a href="#testimonials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.testimonials')}</a>
+            <a href="#credentials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.credentials')}</a>
+          </div>
 
-        {/* Mobile menu button */}
-        <div className="flex items-center md:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-slate-600 hover:text-slate-900 focus:outline-none"
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-      </div>
-    </div>
-
-    {/* 🔑 Mobile Menu INSIDE nav */}
-    {isMobileMenuOpen && (
-      <>
-        {/* Backdrop */}
-        <div
-          className="fixed inset-0 bg-black/50 z-40"
-          onClick={() => setIsMobileMenuOpen(false)}
-        ></div>
-
-        {/* Sidebar */}
-        <div
-          className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl border-l border-slate-200 transform transition-transform duration-300 ease-in-out z-50 ${
-            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        >
-          <div className="p-6 space-y-4">
-            {/* Close button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-slate-600 hover:text-slate-900 focus:outline-none mb-4"
-            >
-              <X className="h-6 w-6" />
-            </button>
-
-            {/* Mobile Links */}
-            <a href="#services" className="block text-slate-600 hover:text-brand-blue">{t('nav.services')}</a>
-            <a href="#portfolio" className="block text-slate-600 hover:text-brand-blue">{t('nav.portfolio')}</a>
-            <a href="#testimonials" className="block text-slate-600 hover:text-brand-blue">{t('nav.testimonials')}</a>
-            <a href="#credentials" className="block text-slate-600 hover:text-brand-blue">{t('nav.credentials')}</a>
-
+          {/* Desktop Header: Language + Buttons */}
+          <div className="hidden md:flex items-center gap-4">
             {/* Language Switcher */}
-            <div className="flex gap-2 text-sm font-medium mt-4">
+            <div className="flex gap-2 text-sm font-medium">
               <button onClick={() => setLanguage('en')} className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
               <div className="text-slate-300">|</div>
               <button onClick={() => setLanguage('it')} className={`transition-colors text-xs font-bold ${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
@@ -220,24 +158,84 @@ function App() {
             </div>
 
             {/* Buttons */}
-            <button onClick={() => { setIsFormOpen(true); setIsMobileMenuOpen(false); }} className="w-full bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group">
+            <button onClick={() => setIsFormOpen(true)} className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 group">
               {t('nav.consultation')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <a href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" target="_blank" rel="noopener noreferrer" className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group">
+            <a href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" target="_blank" rel="noopener noreferrer" className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 group">
               WhatsApp
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
+
+          {/* Mobile menu button */}
+          <div className="flex items-center md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-slate-600 hover:text-slate-900 focus:outline-none"
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
-      </>
-    )}
-  </nav>
+      </div>
 
-  {/* Popup Form */}
-  {isFormOpen && <ConsultationForm onClose={() => setIsFormOpen(false)} />}
-</div>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setIsMobileMenuOpen(false)}
+          ></div>
 
+          {/* Sidebar */}
+          <div
+            className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl border-l border-slate-200 transform transition-transform duration-300 ease-in-out z-50 ${
+              isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
+          >
+            <div className="p-6 space-y-4">
+              {/* Close button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-slate-600 hover:text-slate-900 focus:outline-none mb-4"
+              >
+                <X className="h-6 w-6" />
+              </button>
+
+              {/* Mobile Links */}
+              <a href="#services" className="block text-slate-600 hover:text-brand-blue">{t('nav.services')}</a>
+              <a href="#portfolio" className="block text-slate-600 hover:text-brand-blue">{t('nav.portfolio')}</a>
+              <a href="#testimonials" className="block text-slate-600 hover:text-brand-blue">{t('nav.testimonials')}</a>
+              <a href="#credentials" className="block text-slate-600 hover:text-brand-blue">{t('nav.credentials')}</a>
+
+              {/* Language Switcher */}
+              <div className="flex gap-2 text-sm font-medium mt-4">
+                <button onClick={() => setLanguage('en')} className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+                <div className="text-slate-300">|</div>
+                <button onClick={() => setLanguage('it')} className={`transition-colors text-xs font-bold ${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+                <div className="text-slate-300">|</div>
+                <button onClick={() => setLanguage('ru')} className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+              </div>
+
+              {/* Buttons */}
+              <button onClick={() => { setIsFormOpen(true); setIsMobileMenuOpen(false); }} className="w-full bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group">
+                {t('nav.consultation')}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" target="_blank" rel="noopener noreferrer" className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 group">
+                WhatsApp
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </>
+      )}
+    </nav>
+
+    {/* Popup Form */}
+    {isFormOpen && <ConsultationForm onClose={() => setIsFormOpen(false)} />}
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
