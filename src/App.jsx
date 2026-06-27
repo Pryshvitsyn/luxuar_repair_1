@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { CheckCircle2, ChevronRight, Menu, X, ArrowRight, Star, ExternalLink, ShieldCheck } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Menu, X, ArrowRight, Star, ExternalLink, ShieldCheck, MessageCircle, Calendar } from 'lucide-react'
 import BeforeAfterSlider from './components/BeforeAfterSlider'
 import ProjectDetailsModal from './components/ProjectDetailsModal'
 import { useLanguage } from './LanguageContext'
@@ -181,10 +181,10 @@ function App() {
         </div>
       </nav>
 
-      {/* Mobile Floating Controls */}
-      <div className="fixed bottom-4 right-4 z-30 flex flex-col items-end gap-3 md:hidden">
+      {/* Mobile Floating Controls - Top Right */}
+      <div className="fixed top-20 right-4 z-30 flex flex-col items-end gap-2 md:hidden">
         {/* Language Switcher */}
-        <div className="flex gap-2 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-3 py-1 shadow-md">
+        <div className="flex gap-2 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-3 py-1.5 shadow-md">
           <button onClick={() => setLanguage('en')} className={`${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
           <div className="text-slate-300">|</div>
           <button onClick={() => setLanguage('it')} className={`${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
@@ -198,16 +198,18 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-600 hover:bg-green-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          title="WhatsApp"
         >
-          W
+          <MessageCircle className="w-6 h-6" />
         </a>
 
-        {/* Consultation Form Round Button */}
+        {/* Calendar/Consultation Round Button */}
         <button
           onClick={() => setIsFormOpen(true)}
           className="bg-brand-blue hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          title="Schedule Consultation"
         >
-          C
+          <Calendar className="w-6 h-6" />
         </button>
       </div>
 
