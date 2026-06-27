@@ -128,7 +128,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       {/* Navbar */}
-      <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+      <nav className="fixed w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             {/* Logo */}
@@ -146,8 +146,9 @@ function App() {
               <a href="#credentials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.credentials')}</a>
             </div>
 
-            {/* CTA Button & Language Switcher */}
+            {/* Desktop CTA + Language Switcher */}
             <div className="hidden md:flex items-center gap-4">
+              {/* Language Switcher */}
               <div className="flex gap-2 text-sm font-medium">
                 <button onClick={() => setLanguage('en')} className={`transition-colors text-xs font-bold ${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
                 <div className="text-slate-300">|</div>
@@ -155,19 +156,29 @@ function App() {
                 <div className="text-slate-300">|</div>
                 <button onClick={() => setLanguage('ru')} className={`transition-colors text-xs font-bold ${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
               </div>
-              <a 
-              href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl shadow-brand-blue/20 hover:shadow-brand-blue/40 flex items-center gap-2 group"
->
-  {t('nav.consultation')}
-  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-</a>
 
+              {/* WhatsApp Button */}
+              <a 
+                href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl flex items-center gap-2 group"
+              >
+                WhatsApp
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              {/* Consultation Form Button */}
+              <button
+                onClick={() => setIsFormOpen(true)}
+                className="bg-slate-900 hover:bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-xl flex items-center gap-2 group"
+              >
+                {t('nav.consultation')}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button (no menu links, just floating controls) */}
             <div className="flex items-center md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -179,6 +190,40 @@ function App() {
           </div>
         </div>
       </nav>
+
+      {/* Mobile Floating Controls */}
+      <div className="fixed top-4 right-4 z-50 flex flex-col items-end gap-3 md:hidden">
+        {/* Language Switcher */}
+        <div className="flex gap-2 text-xs font-bold bg-white/80 backdrop-blur-md rounded-full px-3 py-1 shadow-md">
+          <button onClick={() => setLanguage('en')} className={`${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+          <div className="text-slate-300">|</div>
+          <button onClick={() => setLanguage('it')} className={`${language === 'it' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+          <div className="text-slate-300">|</div>
+          <button onClick={() => setLanguage('ru')} className={`${language === 'ru' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+        </div>
+
+        {/* WhatsApp Round Button */}
+        <a
+          href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-600 hover:bg-green-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
+        >
+          W
+        </a>
+
+        {/* Consultation Form Round Button */}
+        <button
+          onClick={() => setIsFormOpen(true)}
+          className="bg-brand-blue hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
+        >
+          C
+        </button>
+      </div>
+
+      {/* Popup Form */}
+      {isFormOpen && <ConsultationForm onClose={() => setIsFormOpen(false)} />}
+    </div>
 
 
       {/* Hero Section */}
