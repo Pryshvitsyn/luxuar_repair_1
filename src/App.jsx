@@ -130,7 +130,7 @@ function App() {
       {/* Navbar for Desktop */}
       <nav className="fixed w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
+          <div className="flex justify-between items-start lg:items-center min-h-20 py-3 lg:py-0">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-serif font-bold tracking-tight text-slate-900">
@@ -138,8 +138,39 @@ function App() {
               </span>
             </div>
 
+            {/* Mobile & Tablet Controls */}
+            <div className="flex flex-col items-end gap-2 lg:hidden">
+              <div className="flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
+                <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+                <div className="text-slate-300">|</div>
+                <button onClick={() => setLanguage('it')} className={`px-2 py-0.5 rounded transition-colors ${language === 'it' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+                <div className="text-slate-300">|</div>
+                <button onClick={() => setLanguage('ru')} className={`px-2 py-0.5 rounded transition-colors ${language === 'ru' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+                  title="WhatsApp"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="bg-brand-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+                  title="Schedule Consultation"
+                >
+                  <Calendar className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
             {/* Desktop Menu */}
-            <div className="hidden md:flex md:space-x-8">
+            <div className="hidden lg:flex lg:space-x-8">
               <a href="#services" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.services')}</a>
               <a href="#portfolio" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.portfolio')}</a>
               <a href="#testimonials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.testimonials')}</a>
@@ -147,7 +178,7 @@ function App() {
             </div>
 
             {/* Desktop CTA + Language Switcher */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
               {/* Language Switcher */}
               <div className="flex gap-2 text-sm font-medium">
                 <button onClick={() => setLanguage('en')} className={`${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
@@ -182,41 +213,6 @@ function App() {
           </div>
         </div>
       </nav>
-
-      {/* Mobile & Tablet Inline Controls */}
-<div className="fixed w-full right-4 z-40 flex flex-col items-end gap-2 lg:hidden">
-  {/* Top Row: Language Switcher inline with Logo */}
-  <div className="flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
-    <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
-    <div className="text-slate-300">|</div>
-    <button onClick={() => setLanguage('it')} className={`px-2 py-0.5 rounded transition-colors ${language === 'it' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
-    <div className="text-slate-300">|</div>
-    <button onClick={() => setLanguage('ru')} className={`px-2 py-0.5 rounded transition-colors ${language === 'ru' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
-  </div>
-
-  {/* Underneath: Buttons stacked vertically */}
-  <div className="flex flex-col gap-2 mt-2">
-    {/* WhatsApp Button */}
-    <a
-      href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-      title="WhatsApp"
-    >
-      <MessageCircle className="w-5 h-5" />
-    </a>
-
-    {/* Consultation Button */}
-    <button
-      onClick={() => setIsFormOpen(true)}
-      className="bg-brand-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-      title="Schedule Consultation"
-    >
-      <Calendar className="w-5 h-5" />
-    </button>
-  </div>
-</div>
 
 
       {/* Popup Form */}
