@@ -18,6 +18,12 @@
   body {
     @apply antialiased bg-slate-50 text-slate-900 selection:bg-brand-blue selection:text-white;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    min-height: 100vh;
   }
 }
 
