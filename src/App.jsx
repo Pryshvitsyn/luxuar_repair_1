@@ -2,27 +2,15 @@ import { useState, useEffect } from 'react'
 import { CheckCircle2, ChevronRight, Menu, X, ArrowRight, Star, ExternalLink, ShieldCheck, MessageCircle, Calendar } from 'lucide-react'
 import BeforeAfterSlider from './components/BeforeAfterSlider'
 import ProjectDetailsModal from './components/ProjectDetailsModal'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from './useLanguage'
 import ConsultationForm from './components/ConsultationForm'
-
-// Placeholder image paths - we will replace these once the generation API is available
-const amalfiBefore = '/images/placeholders/amalfi-before.jpg'
-const amalfiAfter = '/images/placeholders/amalfi-after.jpg'
 
 // Main App Layout
 function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
   const [isFormOpen, setIsFormOpen] = useState(false)
   const { t, language, setLanguage } = useLanguage()
-
-  const placeholderImages = [
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+1",
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+2",
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+3",
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+4",
-  ]
 
   const heroImages = [
     "/images/hero/amalfi.png",
@@ -36,7 +24,7 @@ function App() {
       setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
+  }, [heroImages.length])
 
   const amalfiDetails = [
     "/images/details/amalfi_detail_1.png",
@@ -139,7 +127,7 @@ function App() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex md:space-x-8">
+            <div className="hidden lg:flex lg:space-x-8">
               <a href="#services" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.services')}</a>
               <a href="#portfolio" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.portfolio')}</a>
               <a href="#testimonials" className="text-slate-600 hover:text-brand-blue px-3 py-2 text-sm font-medium transition-colors">{t('nav.testimonials')}</a>
@@ -147,7 +135,7 @@ function App() {
             </div>
 
             {/* Desktop CTA + Language Switcher */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
               {/* Language Switcher */}
               <div className="flex gap-2 text-sm font-medium">
                 <button onClick={() => setLanguage('en')} className={`${language === 'en' ? 'text-brand-blue' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
@@ -178,45 +166,38 @@ function App() {
               </button>
             </div>
 
-            {/* Mobile Menu Button - Hidden, we'll use floating controls instead */}
+            {/* Mobile Language Switcher */}
+            <div className="lg:hidden flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
+              <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+              <div className="text-slate-300">|</div>
+              <button onClick={() => setLanguage('it')} className={`px-2 py-0.5 rounded transition-colors ${language === 'it' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+              <div className="text-slate-300">|</div>
+              <button onClick={() => setLanguage('ru')} className={`px-2 py-0.5 rounded transition-colors ${language === 'ru' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile & Tablet Inline Controls */}
-<div className="fixed w-full right-4 z-40 flex flex-col items-end gap-2 lg:hidden">
-  {/* Top Row: Language Switcher inline with Logo */}
-  <div className="flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
-    <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
-    <div className="text-slate-300">|</div>
-    <button onClick={() => setLanguage('it')} className={`px-2 py-0.5 rounded transition-colors ${language === 'it' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
-    <div className="text-slate-300">|</div>
-    <button onClick={() => setLanguage('ru')} className={`px-2 py-0.5 rounded transition-colors ${language === 'ru' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
-  </div>
+      {/* Mobile & Tablet Floating Action Buttons */}
+      <div className="fixed top-[4.5rem] right-4 z-40 flex flex-col gap-2 lg:hidden">
+        <a
+          href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          title="WhatsApp"
+        >
+          <MessageCircle className="w-5 h-5" />
+        </a>
 
-  {/* Underneath: Buttons stacked vertically */}
-  <div className="flex flex-col gap-2 mt-2">
-    {/* WhatsApp Button */}
-    <a
-      href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-      title="WhatsApp"
-    >
-      <MessageCircle className="w-5 h-5" />
-    </a>
-
-    {/* Consultation Button */}
-    <button
-      onClick={() => setIsFormOpen(true)}
-      className="bg-brand-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-      title="Schedule Consultation"
-    >
-      <Calendar className="w-5 h-5" />
-    </button>
-  </div>
-</div>
+        <button
+          onClick={() => setIsFormOpen(true)}
+          className="bg-brand-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          title="Schedule Consultation"
+        >
+          <Calendar className="w-5 h-5" />
+        </button>
+      </div>
 
 
       {/* Popup Form */}
