@@ -178,42 +178,37 @@ function App() {
               </button>
             </div>
 
-            {/* Mobile Menu Button - Hidden, we'll use floating controls instead */}
+            {/* Mobile Language Switcher */}
+            <div className="lg:hidden flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
+              <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+              <div className="text-slate-300">|</div>
+              <button onClick={() => setLanguage('it')} className={`px-2 py-0.5 rounded transition-colors ${language === 'it' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
+              <div className="text-slate-300">|</div>
+              <button onClick={() => setLanguage('ru')} className={`px-2 py-0.5 rounded transition-colors ${language === 'ru' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile & Tablet Inline Controls */}
-      <div className="fixed top-6 right-4 z-40 flex flex-col items-end gap-2 lg:hidden">
-        {/* Top Row: Language Switcher inline with Logo */}
-        <div className="flex gap-1 text-xs font-bold bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-md">
-          <button onClick={() => setLanguage('en')} className={`px-2 py-0.5 rounded transition-colors ${language === 'en' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
-          <div className="text-slate-300">|</div>
-          <button onClick={() => setLanguage('it')} className={`px-2 py-0.5 rounded transition-colors ${language === 'it' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>IT</button>
-          <div className="text-slate-300">|</div>
-          <button onClick={() => setLanguage('ru')} className={`px-2 py-0.5 rounded transition-colors ${language === 'ru' ? 'text-brand-blue bg-blue-50' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
-        </div>
+      {/* Mobile & Tablet Floating Action Buttons */}
+      <div className="fixed top-[4.5rem] right-4 z-40 flex flex-col gap-2 lg:hidden">
+        <a
+          href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          title="WhatsApp"
+        >
+          <MessageCircle className="w-5 h-5" />
+        </a>
 
-        {/* Underneath: Buttons stacked vertically */}
-        <div className="flex flex-col gap-2">
-          <a
-            href="https://wa.me/393519363404?text=Hello%20I%20would%20like%20a%20consultation"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-            title="WhatsApp"
-          >
-            <MessageCircle className="w-5 h-5" />
-          </a>
-
-          <button
-            onClick={() => setIsFormOpen(true)}
-            className="bg-brand-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-            title="Schedule Consultation"
-          >
-            <Calendar className="w-5 h-5" />
-          </button>
-        </div>
+        <button
+          onClick={() => setIsFormOpen(true)}
+          className="bg-brand-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
+          title="Schedule Consultation"
+        >
+          <Calendar className="w-5 h-5" />
+        </button>
       </div>
 
 
