@@ -1,25 +1,17 @@
 import { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 
 const ProjectDetailsModal = ({ project, onClose }) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const [activeImageIndex, setActiveImageIndex] = useState(0);
+    const [isVisible, setIsVisible] = useState(true);
     const { t } = useLanguage();
 
     useEffect(() => {
-        if (project) {
-            setIsVisible(true);
-            setActiveImageIndex(0);
-            document.body.style.overflow = 'hidden';
-        } else {
-            setIsVisible(false);
-            document.body.style.overflow = '';
-        }
+        document.body.style.overflow = 'hidden';
         return () => {
             document.body.style.overflow = '';
         };
-    }, [project]);
+    }, []);
 
     if (!project) return null;
 
