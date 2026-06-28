@@ -495,10 +495,12 @@ function App() {
         </div>
       </footer>
 
-      <ProjectDetailsModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {selectedProject && (
+        <ProjectDetailsModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   )
 }
