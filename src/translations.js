@@ -134,6 +134,7 @@ export const translations = {
             title: "Soluzioni Chiavi in Mano Complete",
             subtitle: "Gestiamo ogni aspetto, dalle geometrie strutturali ai tocchi finali di interior design, garantendo la tua tranquillità.",
             items: [
+                { title: 'Supporto Completo', desc: 'Nella ricerca e acquisto di proprietà in Italia, con controlli legali completi e documentazione ai sensi della legge italiana.' },
                 { title: 'Ristrutturazione', desc: 'Restauro completo di proprietà storiche e moderne.' },
                 { title: 'Design & Architettura', desc: 'Lavoriamo con la nostra visione o accanto al tuo architetto personale.' },
                 { title: 'Manutenzione', desc: 'Cura continua della proprietà per preservare il tuo investimento.' }
@@ -244,6 +245,7 @@ export const translations = {
             title: "Комплексные Решения Под Ключ",
             subtitle: "Управляем каждым аспектом работы: от структурной геометрии до финальных штрихов в дизайне интерьера, обеспечивая ваше спокойствие.",
             items: [
+                { title: 'Полное Сопровождение', desc: 'При поиске и покупке недвижимости в Италии, со всеми юридическими проверками и документацией по итальянскому законодательству.' },
                 { title: 'Реконструкция', desc: 'Полное восстановление исторических и современных объектов недвижимости.' },
                 { title: 'Дизайн и Архитектура', desc: 'Работаем с нашим видением или совместно с вашим личным архитектором.' },
                 { title: 'Обслуживание', desc: 'Постоянный уход за недвижимостью для сохранения ваших инвестиций.' }
