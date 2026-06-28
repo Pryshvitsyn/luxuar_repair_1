@@ -1,7 +1,6 @@
-import React, { createContext, useState, useContext } from 'react';
+import { useState } from 'react';
 import { translations } from './translations';
-
-const LanguageContext = createContext();
+import { LanguageContext } from './language-context';
 
 export const LanguageProvider = ({ children }) => {
     // Default language is english
@@ -26,5 +25,3 @@ export const LanguageProvider = ({ children }) => {
         </LanguageContext.Provider>
     );
 };
-
-export const useLanguage = () => useContext(LanguageContext);

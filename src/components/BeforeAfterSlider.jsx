@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../useLanguage';
 
 const BeforeAfterSlider = ({ beforeImage, afterImage, location, description, onViewDetails }) => {
     const [sliderPosition, setSliderPosition] = useState(50);
@@ -8,7 +8,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, location, description, onV
     const containerRef = useRef(null);
     const { t } = useLanguage();
 
-    const handleMove = (clientX) => {
+    const handleMove = useCallback((clientX) => {
         if (!containerRef.current || !isDragging) return;
 
         const rect = containerRef.current.getBoundingClientRect();
@@ -16,25 +16,26 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, location, description, onV
         const percent = Math.max(0, Math.min((x / rect.width) * 100, 100));
 
         setSliderPosition(percent);
-    };
+    }, [isDragging]);
 
-    const handleMouseMove = (e) => handleMove(e.clientX);
-    const handleTouchMove = (e) => handleMove(e.touches[0].clientX);
+    const handleMouseMove = useCallback((e) => handleMove(e.clientX), [handleMove]);
+    const handleTouchMove = useCallback((e) => handleMove(e.touches[0].clientX), [handleMove]);
+    const handleStopDragging = useCallback(() => setIsDragging(false), []);
 
     useEffect(() => {
         if (isDragging) {
             window.addEventListener('mousemove', handleMouseMove);
-            window.addEventListener('mouseup', () => setIsDragging(false));
+            window.addEventListener('mouseup', handleStopDragging);
             window.addEventListener('touchmove', handleTouchMove);
-            window.addEventListener('touchend', () => setIsDragging(false));
+            window.addEventListener('touchend', handleStopDragging);
         }
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseup', () => setIsDragging(false));
+            window.removeEventListener('mouseup', handleStopDragging);
             window.removeEventListener('touchmove', handleTouchMove);
-            window.removeEventListener('touchend', () => setIsDragging(false));
+            window.removeEventListener('touchend', handleStopDragging);
         };
-    }, [isDragging]);
+    }, [isDragging, handleMouseMove, handleTouchMove, handleStopDragging]);
 
     return (
         <div className="flex flex-col gap-6 mb-20">

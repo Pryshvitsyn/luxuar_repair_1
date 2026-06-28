@@ -2,27 +2,15 @@ import { useState, useEffect } from 'react'
 import { CheckCircle2, ChevronRight, Menu, X, ArrowRight, Star, ExternalLink, ShieldCheck, MessageCircle, Calendar } from 'lucide-react'
 import BeforeAfterSlider from './components/BeforeAfterSlider'
 import ProjectDetailsModal from './components/ProjectDetailsModal'
-import { useLanguage } from './LanguageContext'
+import { useLanguage } from './useLanguage'
 import ConsultationForm from './components/ConsultationForm'
-
-// Placeholder image paths - we will replace these once the generation API is available
-const amalfiBefore = '/images/placeholders/amalfi-before.jpg'
-const amalfiAfter = '/images/placeholders/amalfi-after.jpg'
 
 // Main App Layout
 function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
   const [isFormOpen, setIsFormOpen] = useState(false)
   const { t, language, setLanguage } = useLanguage()
-
-  const placeholderImages = [
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+1",
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+2",
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+3",
-    "https://placehold.co/800x800/1e293b/ffffff?text=Detail+View+4",
-  ]
 
   const heroImages = [
     "/images/hero/amalfi.png",
@@ -36,7 +24,7 @@ function App() {
       setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
+  }, [heroImages.length])
 
   const amalfiDetails = [
     "/images/details/amalfi_detail_1.png",
