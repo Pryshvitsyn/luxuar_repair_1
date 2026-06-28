@@ -3,7 +3,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../useLanguage';
 
 const ProjectDetailsModal = ({ project, onClose }) => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const { t } = useLanguage();
 
     useEffect(() => {
@@ -13,7 +13,11 @@ const ProjectDetailsModal = ({ project, onClose }) => {
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
 
+        // Trigger entrance animation after mount
+        const raf = requestAnimationFrame(() => setIsVisible(true));
+
         return () => {
+            cancelAnimationFrame(raf);
             document.body.style.overflow = previousBodyOverflow;
             document.documentElement.style.overflow = previousHtmlOverflow;
         };
