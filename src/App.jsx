@@ -130,7 +130,7 @@ function App() {
       {/* Navbar for Desktop */}
       <nav className="fixed w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-start lg:items-center min-h-20 py-3 lg:py-0">
+          <div className="flex justify-between items-start lg:items-center h-auto lg:h-20 py-3 lg:py-0">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-serif font-bold tracking-tight text-slate-900">
