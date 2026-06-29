@@ -459,7 +459,14 @@ function App() {
                 <ShieldCheck className="w-16 h-16 text-brand-blue mb-4" />
                 <h4 className="text-xl font-bold font-serif mb-2">{t('credentials.docTitle')}</h4>
                 <p className="text-slate-500 max-w-xs mb-6">{t('credentials.docDesc')}</p>
-                <button className="text-brand-blue font-medium hover:underline flex items-center gap-1">{t('credentials.viewDoc')} <ExternalLink className="w-4 h-4" /></button>
+                <a
+                  href="https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2016-11-26&atto.codiceRedazionale=16G00237&atto.articolo.numero=0&atto.articolo.sottoArticolo=1&atto.articolo.sottoArticolo1=0&qId=f839d1e9-16ca-4fd8-9b62-f2d71e97b1c5&tabID=0.3844216940135019&title=lbl.dettaglioAtto"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-blue font-medium hover:underline flex items-center gap-1"
+                >
+                  {t('credentials.viewDoc')} <ExternalLink className="w-4 h-4" />
+                </a>
                 {/* Will overlay generated document image here later if needed */}
               </div>
             </div>
