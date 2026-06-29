@@ -1,11 +1,26 @@
 import React from 'react'
 
 export default function ConsultationForm({ onClose }) {
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // TODO: connect to Google Sheets API
-    onClose()
+  const handleSubmit = async (e) => {
+  e.preventDefault()
+  const formData = {
+    name: e.target[0].value,
+    surname: e.target[1].value,
+    email: e.target[2].value,
+    phone: e.target[3].value,
+    service: e.target[4].value,
+    datetime: e.target[5].value
   }
+
+  await fetch("https://script.google.com/macros/s/AKfycbxPnOvCn7lR98Jh1cNs5KKvl3heYaCu6k55oSpCJ_vQf3MDYqF6Q8MwFrHTFJH2VB6GXQ/exec", {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: { "Content-Type": "application/json" }
+  })
+
+  onClose()
+}
+
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
