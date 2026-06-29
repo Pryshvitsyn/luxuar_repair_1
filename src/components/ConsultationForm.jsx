@@ -21,7 +21,7 @@ export default function ConsultationForm({ onClose }) {
             name="phone"
             placeholder="Phone"
             required
-            pattern="^\+?[0-9\s\-()]{7,20}$"
+            pattern="^\+?[0-9()\s-]{7,20}$"
             title="Enter a valid phone number"
             className="w-full mb-2 border p-2 rounded"
           />
