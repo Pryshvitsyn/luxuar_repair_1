@@ -396,43 +396,46 @@ function App() {
 
               {/* Branded Partners with authentic colors */}
               {[
-                { name: "Knauf", color: "#003B7E" },
-                { name: "Mapei", color: "#004F9F" },
-                { name: "Kerakoll", color: "#8DC63F" },
-                { name: "Fassa Bortolo", color: "#E30613" },
-                { name: "Weber", color: "#00A651" },
-                { name: "Vimar", color: "#003366" },
-                { name: "BTicino", color: "#007DC3" },
-                { name: "Daikin", color: "#009FE3" },
-                { name: "Mitsubishi", color: "#E60012" },
-                { name: "Velux", color: "#C8102E" },
-                { name: "Scrigno", color: "#1D1D1B" },
-                { name: "Gyproc", color: "#0072CE" },
-                { name: "Italcementi", color: "#1E3A5F" },
-                { name: "Buzzi Unicem", color: "#004B87" },
-                { name: "Marazzi", color: "#1A1A1A" },
-                { name: "Florim", color: "#2C2C2C" },
-                { name: "Jacuzzi", color: "#C09553" },
-                { name: "Villeroy & Boch", color: "#003D6A" },
-                { name: "Grohe", color: "#005CA9" },
-                { name: "Geberit", color: "#004990" },
-                { name: "Hansgrohe", color: "#00694E" },
-                { name: "Fantini", color: "#1A1A1A" },
-                { name: "Gessi", color: "#8B7355" },
-                { name: "Dornbracht", color: "#2B2B2B" },
-                { name: "Salvatori", color: "#A0927C" },
-                { name: "Antolini", color: "#B8860B" },
-                { name: "Margraf", color: "#6B4C3B" },
-                { name: "Boffi", color: "#1C1C1C" },
-                { name: "Porcelanosa", color: "#1E1E1E" },
+                { name: "Knauf", color: "#003B7E", url: "https://www.knauf.com/" },
+                { name: "Mapei", color: "#004F9F", url: "https://www.mapei.com/" },
+                { name: "Kerakoll", color: "#8DC63F", url: "https://www.kerakoll.com/" },
+                { name: "Fassa Bortolo", color: "#E30613", url: "https://www.fassabortolo.com/" },
+                { name: "Weber", color: "#00A651", url: "https://www.it.weber/" },
+                { name: "Vimar", color: "#003366", url: "https://www.vimar.com/" },
+                { name: "BTicino", color: "#007DC3", url: "https://www.bticino.com/" },
+                { name: "Daikin", color: "#009FE3", url: "https://www.daikin.com/" },
+                { name: "Mitsubishi", color: "#E60012", url: "https://www.mitsubishielectric.com/" },
+                { name: "Velux", color: "#C8102E", url: "https://www.velux.com/" },
+                { name: "Scrigno", color: "#1D1D1B", url: "https://www.scrigno.com/" },
+                { name: "Gyproc", color: "#0072CE", url: "https://www.gyproc.com/" },
+                { name: "Italcementi", color: "#1E3A5F", url: "https://www.italcementi.it/" },
+                { name: "Buzzi Unicem", color: "#004B87", url: "https://www.buzziunicem.com/" },
+                { name: "Marazzi", color: "#1A1A1A", url: "https://www.marazzi.it/" },
+                { name: "Florim", color: "#2C2C2C", url: "https://www.florim.com/" },
+                { name: "Jacuzzi", color: "#C09553", url: "https://www.jacuzzi.com/" },
+                { name: "Villeroy & Boch", color: "#003D6A", url: "https://www.villeroy-boch.com/" },
+                { name: "Grohe", color: "#005CA9", url: "https://www.grohe.com/" },
+                { name: "Geberit", color: "#004990", url: "https://www.geberit.com/en/" },
+                { name: "Hansgrohe", color: "#00694E", url: "https://www.hansgrohe.com/" },
+                { name: "Fantini", color: "#1A1A1A", url: "https://www.fantinirubinetti.com/" },
+                { name: "Gessi", color: "#8B7355", url: "https://www.gessi.com/" },
+                { name: "Dornbracht", color: "#2B2B2B", url: "https://www.dornbracht.com/" },
+                { name: "Salvatori", color: "#A0927C", url: "https://www.salvatoriofficial.com/" },
+                { name: "Antolini", color: "#B8860B", url: "https://www.antolini.com/" },
+                { name: "Margraf", color: "#6B4C3B", url: "https://www.margraf.it/" },
+                { name: "Boffi", color: "#1C1C1C", url: "https://www.boffi.com/" },
+                { name: "Porcelanosa", color: "#1E1E1E", url: "https://www.porcelanosa.com/" },
               ].map((brand, idx) => (
-                <span
+                <a
                   key={isDuplicate ? `dup-${idx}` : idx}
-                  className="text-2xl font-bold font-sans uppercase tracking-widest mx-8 transition-all duration-300 cursor-default opacity-60 hover:opacity-100"
+                  href={brand.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl font-bold font-sans uppercase tracking-widest mx-8 transition-all duration-300 cursor-pointer opacity-60 hover:opacity-100"
                   style={{ color: brand.color }}
                 >
                   {brand.name}
-                </span>
+                </a>
               ))}
             </div>
           ))}
