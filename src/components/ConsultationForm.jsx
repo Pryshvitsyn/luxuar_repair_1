@@ -17,14 +17,14 @@ export default function ConsultationForm({ onClose }) {
           <input type="text" name="surname" placeholder="Surname" required className="w-full mb-2 border p-2 rounded" />
           <input type="email" name="email" placeholder="Email" required className="w-full mb-2 border p-2 rounded" />
           <input
-            type="tel"
-            name="phone"
-            placeholder="Phone"
-            required
-            pattern="^\+?[0-9()\s-]{7,20}$"
-            title="Enter a valid phone number"
-            className="w-full mb-2 border p-2 rounded"
-          />
+  type="tel"
+  name="phone"
+  placeholder="Phone"
+  required
+  pattern="^[+]{0,1}[0-9()\\s-]{7,20}$"
+  title="Enter a valid phone number (7-20 chars, digits, spaces, parentheses, hyphen, optional leading +)"
+  className="w-full mb-2 border p-2 rounded"
+/>
           <select name="service" required className="w-full mb-2 border p-2 rounded">
             <option value="Help with search/buy property">Help with search/buy property</option>
             <option value="Help with repairment">Help with repairment</option>
