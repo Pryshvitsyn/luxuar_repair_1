@@ -57,16 +57,20 @@ export default function ConsultationForm({ onClose }) {
     try {
       setSubmitting(true)
 
+      const payload = new FormData()
+      payload.append('name', form.name)
+      payload.append('surname', form.surname)
+      payload.append('email', form.email)
+      payload.append('phone', form.phone)
+      payload.append('service', form.service)
+      payload.append('datetime', form.datetime)
+
       const res = await fetch('https://script.google.com/macros/s/AKfycbxPnOvCn7lR98Jh1cNs5KKvl3heYaCu6k55oSpCJ_vQf3MDYqF6Q8MwFrHTFJH2VB6GXQ/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: payload,
       })
 
-      if (!res.ok) {
-        const text = await res.text()
-        throw new Error(text || 'Request failed')
-      }
+      if (!res.ok) throw new Error('Request failed')
 
       onClose()
     } catch (err) {
