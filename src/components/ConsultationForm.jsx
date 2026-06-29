@@ -8,7 +8,7 @@ export default function ConsultationForm({ onClose }) {
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-lg font-bold mb-4">Consultation Request</h2>
         <form
-          action="https://script.google.com/macros/s/AKfycbxPnOvCn7lR98Jh1cNs5KKvl3heYaCu6k55oSpCJ_vQf3MDYqF6Q8MwFrHTFJH2VB6GXQ/exec"
+          action="https://script.google.com/macros/s/AKfycbwtoInpl_lZUmsvPkaMjQW_phwG-0Y4LCis8B11DSxIVRU7xf_6A9j24Yx1vlkSQTsx_A/exec"
           method="POST"
           target="hidden_iframe"
           onSubmit={() => setTimeout(onClose, 300)}
