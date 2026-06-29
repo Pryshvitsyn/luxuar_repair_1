@@ -244,11 +244,11 @@ function App() {
       <section className="bg-slate-900 border-y border-slate-800 text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
           <span className="text-slate-400 font-medium tracking-wide uppercase text-sm">{t('exclusive.partnership')}</span>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center w-full md:w-auto">
             <img
               src="/nestseekers-logo.svg"
               alt="NestSeekers International"
-              className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain"
+              className="h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 w-auto max-w-[95vw] sm:max-w-[80vw] md:max-w-none object-contain shrink-0 mx-auto"
             />
           </div>
           <a href="https://www.facebook.com/kathleen.canape" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group hover:text-brand-blue transition-colors">
